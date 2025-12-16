@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waimao Search - 5秒完成传统数月的客户开发</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --text-color: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #0da271;
+            border-color: #0da271;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+        
+        /* 导航栏 */
+        .navbar {
+            padding: 20px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--dark-color);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        /* 首屏 */
+        .hero-section {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: rgba(37, 99, 235, 0.05);
+            top: -200px;
+            right: -150px;
+        }
+        
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: rgba(16, 185, 129, 0.05);
+            bottom: -100px;
+            left: -100px;
+        }
+        
+        .hero-title {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            margin-bottom: 35px;
+            max-width: 600px;
+        }
+        
+        .time-comparison {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 600px;
+            margin: 40px 0;
+            padding: 25px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .old-method, .new-method {
+            text-align: center;
+            flex: 1;
+            padding: 0 20px;
+        }
+        
+        .old-method h3 {
+            color: #ef4444;
+            margin-bottom: 10px;
+        }
+        
+        .new-method h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .time-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .old-time {
+            color: #ef4444;
+        }
+        
+        .new-time {
+            color: var(--secondary-color);
+        }
+        
+        .vs {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            padding: 0 15px;
+        }
+        
+        /* 功能展示 */
+        .feature-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .feature-icon i {
+            font-size: 30px;
+            color: var(--primary-color);
+        }
+        
+        .feature-card h4 {
+            margin-bottom: 15px;
+        }
+        
+        /* 智能分类演示 */
+        .demo-section {
+            background-color: #f8fafc;
+        }
+        
+        .demo-visual {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            border-radius: 50px;
+            margin: 5px;
+            font-weight: 500;
+        }
+        
+        .percentage {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-left: 5px;
+        }
+        
+        /* 定价 */
+        .pricing-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            height: 100%;
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .pricing-card h3 {
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        
+        /* 客户见证 */
+        .testimonial-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+        
+        .client-info h5 {
+            margin-bottom: 5px;
+        }
+        
+        .client-info p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        /* 页脚 */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer h5 {
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .time-comparison {
+                flex-direction: column;
+            }
+            
+            .old-method, .new-method {
+                margin-bottom: 20px;
+            }
+            
+            .vs {
+                margin: 15px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Waimao<span>Search</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">功能</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#demo">智能分类</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">定价</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">客户评价</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系我们</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="btn btn-primary" href="#pricing">免费试用</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首屏 -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">传统数月的客户开发，现在只需<span style="color: var(--secondary-color);">5秒完成</span></h1>
+                    <p class="hero-subtitle">Waimao Search 是外贸行业的革命性工具，通过人工智能和数据分析，将复杂的客户搜索和筛选过程简化到极致。</p>
+                    
+                    <div class="time-comparison">
+                        <div class="old-method">
+                            <h3>传统方式</h3>
+                            <div class="time-number old-time">2-3个月</div>
+                            <p>手工搜索、筛选、验证</p>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="new-method">
+                            <h3>Waimao Search</h3>
+                            <div class="time-number new-time">5秒</div>
+                            <p>自动化精准获取</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#pricing" class="btn btn-primary btn-lg me-3">免费开始试用</a>
+                        <a href="#demo" class="btn btn-outline-primary btn-lg">查看演示</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mt-5 mt-lg-0">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="img-fluid rounded shadow-lg" alt="外贸数据分析仪表板" style="border-radius: 12px !important;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能展示 -->
+    <section id="features" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>核心功能</h2>
+                <p class="lead">六大核心功能，全面解决外贸客户开发难题</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>5秒精准搜索</h4>
+                        <p>输入产品词、品牌词（支持全球任意语言），一键搜索出上万个精准客户网站。无需翻Google，无需手动筛选。</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4>智能批量分析</h4>
+                        <p>多关键词同时分析匹配度，一键分析品牌市场占有率。自动排除不相关网站，只保留真实采购商、批发商。</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h4>深度客户分类</h4>
+                        <p>按产品类型自动分类客户，智能分组，提供针对性开发策略。例如：专业灯具、家具+灯、建材+灯等。</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h4>小语种市场挖掘</h4>
+                        <p>支持小语种关键词批量搜索，快速发现蓝海市场。同一产品，多种语言关键词同时分析。</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-export"></i>
+                        </div>
+                        <h4>数据批量导出</h4>
+                        <p>一键提取邮箱、电话、国家等信息，Excel格式导出，直接对接邮件/WhatsApp营销。本地数据库建立客户池。</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search-check"></i>
+                        </div>
+                        <h4>市场验证工具</h4>
+                        <p>关键词市场容量分析，竞争对手网站分析，本地数据库批量验证新网站。确保开发方向的准确性。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 智能分类演示 -->
+    <section id="demo" class="section-padding demo-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>智能分类演示</h2>
+                <p class="lead">以"灯具"为例，系统自动分类客户类型，针对性开发</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="demo-visual">
+                        <h4 class="mb-4">输入关键词: <strong>"灯具"</strong></h4>
+                        <div class="mb-5">
+                            <h5 class="mb-3">系统自动分类结果:</h5>
+                            <div>
+                                <span class="category-badge">专业灯具 <span class="percentage">45%</span></span>
+                                <span class="category-badge">家具+灯具 <span class="percentage">30%</span></span>
+                                <span class="category-badge">建材+灯具 <span class="percentage">15%</span></span>
+                                <span class="category-badge">汽配+灯具 <span class="percentage">6%</span></span>
+                                <span class="category-badge">户外+灯具 <span class="percentage">4%</span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h5 class="mb-3">小语种市场挖掘示例:</h5>
+                            <p class="mb-2">输入多语言关键词:</p>
+                            <div>
+                                <span class="category-badge">Lampen (德语)</span>
+                                <span class="category-badge">Lámparas (西班牙语)</span>
+                                <span class="category-badge">Lampade (意大利语)</span>
+                                <span class="category-badge">照明器具 (日语)</span>
+                                <span class="category-badge">Đèn (越南语)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mt-5 mt-lg-0">
+                        <h4 class="mb-4">针对性开发策略</h4>
+                        <div class="accordion" id="strategyAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                        专业灯具客户 (45%)
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#strategyAccordion">
+                                    <div class="accordion-body">
+                                        <p><strong>开发策略:</strong> 强调产品的专业性和技术参数，提供ODM/OEM服务方案。</p>
+                                        <ul>
+                                            <li>重点展示认证证书和技术文档</li>
+                                            <li>提供定制化方案和样品服务</li>
+                                            <li>强调生产能力和质量控制体系</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                        家具+灯具客户 (30%)
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#strategyAccordion">
+                                    <div class="accordion-body">
+                                        <p><strong>开发策略:</strong> 强调设计与家居环境的搭配，提供整体解决方案。</p>
+                                        <ul>
+                                            <li>展示与家具搭配的效果图</li>
+                                            <li>强调节能环保和智能控制功能</li>
+                                            <li>提供整体空间照明设计方案</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                        建材+灯具客户 (15%)
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#strategyAccordion">
+                                    <div class="accordion-body">
+                                        <p><strong>开发策略:</strong> 强调产品的耐用性和工程适用性，提供批量采购优惠。</p>
+                                        <ul>
+                                            <li>突出防水防尘等级和安装便捷性</li>
+                                            <li>提供工程项目支持和技术指导</li>
+                                            <li>展示在大型工程项目中的应用案例</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <a href="#pricing" class="btn btn-primary">立即体验智能分类</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 定价 -->
+    <section id="pricing" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>简单透明的定价</h2>
+                <p class="lead">选择适合您业务需求的方案</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h3>免费版</h3>
+                        <div class="price">$0 <span>/月</span></div>
+                        <p>适合个人用户试用</p>
+                        
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check text-success me-2"></i>每月100次搜索</li>
+                            <li><i class="fas fa-check text-success me-2"></i>基础关键词搜索</li>
+                            <li><i class="fas fa-check text-success me-2"></i>导出前10条结果</li>
+                            <li><i class="fas fa-times text-secondary me-2"></i>无批量分析功能</li>
+                            <li><i class="fas fa-times text-secondary me-2"></i>无小语种搜索</li>
+                        </ul>
+                        
+                        <a href="#" class="btn btn-outline-primary w-100">开始免费试用</a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">最受欢迎</div>
+                        <h3>专业版</h3>
+                        <div class="price">$99 <span>/月</span></div>
+                        <p>适合中小外贸企业</p>
+                        
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check text-success me-2"></i>无限次搜索</li>
+                            <li><i class="fas fa-check text-success me-2"></i>所有核心功能</li>
+                            <li><i class="fas fa-check text-success me-2"></i>批量导出无限制</li>
+                            <li><i class="fas fa-check text-success me-2"></i>小语种搜索支持</li>
+                            <li><i class="fas fa-check text-success me-2"></i>智能分类功能</li>
+                        </ul>
+                        
+                        <a href="#" class="btn btn-primary w-100">立即购买</a>
+                        <p class="text-muted mt-2 small">首月仅需$49.5 (5折优惠)</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h3>企业版</h3>
+                        <div class="price">$299 <span>/月</span></div>
+                        <p>适合大型外贸公司</p>
+                        
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check text-success me-2"></i>专业版所有功能</li>
+                            <li><i class="fas fa-check text-success me-2"></i>API接口接入</li>
+                            <li><i class="fas fa-check text-success me-2"></i>自定义分类规则</li>
+                            <li><i class="fas fa-check text-success me-2"></i>团队协作功能</li>
+                            <li><i class="fas fa-check text-success me-2"></i>专属客户支持</li>
+                        </ul>
+                        
+                        <a href="#contact" class="btn btn-outline-primary w-100">联系我们</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center p-4 border rounded bg-light">
+                        <h5 class="mb-3">不确定选择哪个方案？</h5>
+                        <p>我们的客户成功团队可以为您提供个性化建议。预约15分钟免费咨询，了解哪个方案最适合您的业务需求。</p>
+                        <a href="#contact" class="btn btn-secondary">预约免费咨询</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 客户评价 -->
+    <section id="testimonials" class="section-padding demo-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>客户评价</h2>
+                <p class="lead">听听已经使用Waimao Search的外贸企业怎么说</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            使用Waimao Search后，我们的客户开发效率提升了15倍。以前需要一个团队做的工作，现在一个人几天就能完成。
+                        </div>
+                        <div class="client-info">
+                            <h5>张经理</h5>
+                            <p>某灯具出口公司外贸主管</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            小语种市场一直是我们想开发但无从下手的领域。通过Waimao Search，我们成功开拓了越南和土耳其市场，找到了大量精准客户。
+                        </div>
+                        <div class="client-info">
+                            <h5>李女士</h5>
+                            <p>某机械出口公司老板</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            智能分类功能让我们能够针对性开发不同客户群体，转化率提高了40%。这不仅仅是一个搜索工具，更是客户开发策略助手。
+                        </div>
+                        <div class="client-info">
+                            <h5>王总监</h5>
+                            <p>某家具出口公司销售总监</p>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="bg-white p-5 rounded shadow-sm text-center">
+                        <h4 class="mb-3">数据见证效率提升</h4>
+                        <div class="row mt-4">
+                            <div class="col-md-3 col-6">
+                                <div class="display-4 fw-bold text-primary">1,200+</div>
+                                <p>外贸企业客户</p>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="display-4 fw-bold text-primary">3,500万+</div>
+                                <p>累计搜索网站</p>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="display-4 fw-bold text-primary">15倍</div>
+                                <p>平均效率提升</p>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="display-4 fw-bold text-primary">98.5%</div>
+                                <p>时间节省比例</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 最终CTA -->
+    <section id="contact" class="section-padding" style="background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%); color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4" style="color: white;">立即开始您的5秒客户开发之旅</h2>
+                    <p class="lead mb-5">不要再把时间浪费在繁琐的搜索和筛选上。立即注册免费试用，体验外贸客户开发的效率革命。</p>
+                    
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-lg-4 col-md-6">
+                            <a href="#pricing" class="btn btn-light btn-lg w-100">免费试用</a>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <a href="#demo" class="btn btn-outline-light btn-lg w-100">观看演示视频</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <p class="mb-2">或通过以下方式联系我们：</p>
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <a href="mailto:support@waimaosearch.com" class="text-white me-4"><i class="fas fa-envelope me-1"></i> support@waimaosearch.com</a>
+                            <a href="tel:+861234567890" class="text-white me-4"><i class="fas fa-phone me-1"></i> +86 123 4567 890</a>
+                            <a href="#" class="text-white"><i class="fas fa-comment me-1"></i> 在线客服</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5>Waimao<span>Search</span></h5>
+                    <p>更省时，更精准的外贸客户搜索和筛选系统。传统需要几个月的客户开发工作，现在只需5秒即可完成。</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3"><i class="fab fa-weixin fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>产品</h5>
+                    <ul class="footer-links">
+                        <li><a href="#features">功能</a></li>
+                        <li><a href="#pricing">定价</a></li>
+                        <li><a href="#demo">演示</a></li>
+                        <li><a href="#testimonials">客户评价</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>资源</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">帮助中心</a></li>
+                        <li><a href="#">博客</a></li>
+                        <li><a href="#">外贸开发白皮书</a></li>
+                        <li><a href="#">API文档</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <h5>保持更新</h5>
+                    <p>订阅我们的 newsletter，获取外贸开发技巧和产品更新。</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="您的邮箱地址">
+                        <button class="btn btn-primary" type="button">订阅</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Waimao Search. 保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // 简单的滚动效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // 导航栏滚动效果
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 100) {
+                    navbar.style.padding = '10px 0';
+                    navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    navbar.style.padding = '20px 0';
+                    navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
