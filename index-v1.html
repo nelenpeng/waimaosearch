@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waimao Search - 5秒完成传统数月的客户搜索和筛选</title>
+    <title>Waimao Search - 5秒完成传统数月的客户开发</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
@@ -132,7 +132,7 @@
         /* 首屏 */
         .hero-section {
             padding-top: 150px;
-            padding-bottom: 50px;
+            padding-bottom: 100px;
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             position: relative;
             overflow: hidden;
@@ -286,123 +286,66 @@
         }
         
         /* 定价 */
-		/* 修正定价部分宽度对齐问题 */
-		.pricing-card {
-			background-color: white;
-			border-radius: 12px;
-			padding: 25px 20px;
-			height: 100%;
-			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-			transition: all 0.3s ease;
-			border: 1px solid #e2e8f0;
-			display: flex;
-			flex-direction: column;
-		}
-
-		/* 使用弹性盒子确保5个卡片等宽 */
-		.row.justify-content-center {
-			width: 100%;
-		}
-
-		.col-lg {
-			flex: 1;
-			min-width: 0; /* 防止内容溢出 */
-		}
-
-		/* 调整价格显示 */
-		.price {
-			font-size: 1.8rem;
-			font-weight: 700;
-			color: var(--primary-color);
-			margin: 15px 0 5px;
-		}
-
-		.period {
-			display: block;
-			font-size: 0.9rem;
-			color: #64748b;
-			font-weight: normal;
-		}
-
-		/* 功能列表调整 */
-		.pricing-features {
-			list-style: none;
-			padding: 0;
-			margin: 20px 0;
-			flex-grow: 1;
-		}
-
-		.pricing-features li {
-			padding: 6px 0;
-			border-bottom: 1px solid #e2e8f0;
-			font-size: 0.85rem;
-			display: flex;
-			align-items: center;
-		}
-
-		.pricing-features li:last-child {
-			border-bottom: none;
-		}
-
-		/* 推荐卡片样式 */
-		.pricing-card.popular {
-			border: 2px solid var(--primary-color);
-			position: relative;
-			transform: translateY(-5px);
-			box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
-		}
-
-		.pricing-card.popular .btn-primary {
-			background-color: var(--primary-color);
-			border-color: var(--primary-color);
-		}
-
-		/* 确保按钮在底部对齐 */
-		.mt-auto {
-			margin-top: auto;
-		}
-
-		/* 响应式调整 */
-		@media (max-width: 1200px) {
-			.col-lg {
-				flex: 0 0 33.333%;
-				max-width: 33.333%;
-			}
-			
-			.pricing-card.popular {
-				transform: translateY(0);
-			}
-		}
-
-		@media (max-width: 992px) {
-			.col-lg {
-				flex: 0 0 50%;
-				max-width: 50%;
-			}
-		}
-
-		@media (max-width: 768px) {
-			.col-lg {
-				flex: 0 0 100%;
-				max-width: 100%;
-			}
-			
-			.pricing-card {
-				margin-bottom: 20px;
-			}
-		}
-
-		/* 修复自定义价格显示 */
-		.price-range {
-			font-size: 1.6rem;
-			font-weight: 700;
-		}
-
-		.price-range span {
-			color: #d17c5b;
-			font-weight: 700;
-		}
-
+        .pricing-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            height: 100%;
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .pricing-card h3 {
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
         
         /* 客户见证 */
         .testimonial-card {
@@ -513,144 +456,6 @@
                 margin: 15px 0;
             }
         }
-		/* ============================================
-		视频展示区样式
-		============================================ */
-
-		/* 视频包装容器 */
-		/* 自定义容器 - 16:9比例 */
-		.video-wrapper {
-			position: relative;
-			padding-bottom: 56.25%; /* 16:9 的高宽比计算：9/16=0.5625 */
-			height: 0;
-			overflow: hidden;
-		}
-
-		.video-wrapper iframe {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			border: none;
-		}
-
-		/* 其他常见比例 */
-		/* 4:3 比例：75% (3/4=0.75) */
-		.video-wrapper-4-3 {
-			padding-bottom: 75%;
-		}
-
-		/* 21:9 超宽屏：42.86% (9/21≈0.4286) */
-		.video-wrapper-21-9 {
-			padding-bottom: 42.86%;
-		}
-
-		/* 视频容器（带预览图） */
-		.video-container {
-			position: relative;
-			border-radius: 12px;
-			overflow: hidden;
-			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-			background-color: #000;
-		}
-
-		/* 自定义播放按钮 */
-		.btn-video-play {
-			width: 80px;
-			height: 80px;
-			background-color: var(--primary-color);
-			border: none;
-			border-radius: 50%;
-			color: white;
-			font-size: 24px;
-			cursor: pointer;
-			transition: all 0.3s ease;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			z-index: 10;
-		}
-
-		.btn-video-play:hover {
-			transform: translate(-50%, -50%) scale(1.1);
-			background-color: #1d4ed8;
-		}
-
-		/* ============================================
-		   图片展示区样式
-		   ============================================ */
-
-		/* 图片卡片 */
-		.screenshot-card {
-			position: relative;
-			overflow: hidden;
-			border-radius: 12px;
-			transition: all 0.3s ease;
-			margin-bottom: 30px;
-		}
-
-		.screenshot-card:hover {
-			transform: translateY(-10px);
-			box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-		}
-
-		.screenshot-card img {
-			transition: transform 0.5s ease;
-			width: 100%;
-			height: auto;
-			display: block;
-		}
-
-		.screenshot-card:hover img {
-			transform: scale(1.05);
-		}
-
-		/* 图片说明文字 */
-		.screenshot-caption {
-			padding: 20px;
-			background-color: white;
-			border-top: 1px solid #e2e8f0;
-		}
-
-		/* 图片轮播 */
-		.carousel-indicators button {
-			width: 10px !important;
-			height: 10px !important;
-			border-radius: 50%;
-			margin: 0 5px;
-			background-color: rgba(0, 0, 0, 0.25);
-			border: none;
-		}
-
-		.carousel-indicators .active {
-			background-color: var(--primary-color);
-		}
-
-		/* 响应式图片尺寸 */
-		@media (max-width: 768px) {
-			.screenshot-card {
-				margin-bottom: 20px;
-			}
-			
-			.video-wrapper {
-				margin: 10px 0;
-			}
-		}
-
-		/* 图片懒加载动画 */
-		@keyframes fadeIn {
-			from { opacity: 0; transform: translateY(20px); }
-			to { opacity: 1; transform: translateY(0); }
-		}
-
-		.lazy-image {
-			animation: fadeIn 0.5s ease-in;
-		}
     </style>
 </head>
 <body>
@@ -691,7 +496,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1 class="hero-title">传统数月的客户搜索和筛选，现在只需<span style="color: var(--secondary-color);">5秒完成</span></h1>
+                    <h1 class="hero-title">传统数月的客户开发，现在只需<span style="color: var(--secondary-color);">5秒完成</span></h1>
                     <p class="hero-subtitle">Waimao Search 是外贸行业的革命性工具，通过人工智能和数据分析，将复杂的客户搜索和筛选过程简化到极致。</p>
                     
                     <div class="time-comparison">
@@ -708,10 +513,10 @@
                         </div>
                     </div>
                     
-<!--                     <div class="hero-buttons">
+                    <div class="hero-buttons">
                         <a href="#pricing" class="btn btn-primary btn-lg me-3">免费开始试用</a>
                         <a href="#demo" class="btn btn-outline-primary btn-lg">查看演示</a>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="mt-5 mt-lg-0">
@@ -721,7 +526,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- 功能展示 -->
     <section id="features" class="section-padding">
@@ -790,90 +594,20 @@
         </div>
     </section>
 
-    <!-- 在功能展示和智能分类之间插入视频演示 -->
-    <!-- 简洁版本 - 推荐使用 -->
-	<section class="section-padding">
-		<div class="container">
-			<!-- 标题区域 -->
-			<div class="row">
-				<div class="col-12 text-center">
-					<h2 class="mb-3">观看演示视频</h2>
-					<p class="lead text-muted mb-5">直观了解Waimao Search如何5秒完成传统数月的客户开发工作</p>
-				</div>
-			</div>
-			
-			<!-- 视频区域 -->
-			<div class="row">
-				<div class="col-12">
-					<div class="video-wrapper">
-						<iframe src="https://player.bilibili.com/player.html?bvid=BV15AsAzLE6e&page=1&high_quality=1&autoplay=0&danmaku=0"
-								allowfullscreen
-								title="Waimao Search产品演示">
-						</iframe>
-					</div>
-				</div>
-			</div>
-			
-			<!-- 行动按钮 -->
-			<div class="row mt-4">
-				<div class="col-12 text-center">
-					<a href="#contact" class="btn btn-primary btn-lg px-5">
-						<i class="fas fa-video me-2"></i>联系我们需要的行业
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-    <!-- 在现有部分之间插入 图片展示区样式 -->
-<!--     <section id="gallery" class="section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>界面展示</h2>
-                <p class="lead">直观的操作界面，简单易用</p>
-            </div>
-            
-            <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="card border-0 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
-                             alt="搜索界面" 
-                             class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">智能搜索界面</h5>
-                            <p class="card-text">支持多语言关键词输入，实时显示搜索结果。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="card border-0 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
-                             alt="数据分析界面" 
-                             class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">数据分析仪表板</h5>
-                            <p class="card-text">可视化展示客户分类和市场分析结果。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>  -->
-
     <!-- 智能分类演示 -->
     <section id="demo" class="section-padding demo-section">
         <div class="container">
             <div class="section-title">
-                <h2>快速分类-针对性批量开发</h2>
-                <p class="lead">以"灯具"为例，分类客户类型，针对性开发</p>
+                <h2>智能分类演示</h2>
+                <p class="lead">以"灯具"为例，系统自动分类客户类型，针对性开发</p>
             </div>
             
             <div class="row">
                 <div class="col-lg-6">
                     <div class="demo-visual">
-                        <h4 class="mb-4">输入和"灯具"相关键系列词: </h4>
+                        <h4 class="mb-4">输入关键词: <strong>"灯具"</strong></h4>
                         <div class="mb-5">
-                            <h5 class="mb-3">根据设置词分类行业词结果,例如可以分为:</h5>
+                            <h5 class="mb-3">系统自动分类结果:</h5>
                             <div>
                                 <span class="category-badge">专业灯具 <span class="percentage">45%</span></span>
                                 <span class="category-badge">家具+灯具 <span class="percentage">30%</span></span>
@@ -962,148 +696,83 @@
         </div>
     </section>
 
-
-    <!-- 定价部分 -->
+    <!-- 定价 -->
     <section id="pricing" class="section-padding">
         <div class="container">
             <div class="section-title">
-                <h2>选择适合您的套餐</h2>
-                <p class="lead">参考价格 - 按行业的不同价格会在基础价上波动</p>
+                <h2>简单透明的定价</h2>
+                <p class="lead">选择适合您业务需求的方案</p>
             </div>
             
-            <div class="row g-4 justify-content-center">
-                <!-- 入门版 -->
-                <div class="col-lg">
-                    <div class="pricing-card h-100">
-                        <h4>入门版</h4>
-                        <p class="text-muted small mb-3">单行业数据库Excel</p>
-                        
-                        <div class="price">
-                            ¥299 <span class="period">一次性交付</span>
-                        </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h3>免费版</h3>
+                        <div class="price">$0 <span>/月</span></div>
+                        <p>适合个人用户试用</p>
                         
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check text-success me-2"></i> Excel表格</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 网站信息</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 公司名称</li>
-                            <li><i class="fas fa-times text-secondary me-2"></i> 联系信息</li>
-                            <li><i class="fas fa-times text-secondary me-2"></i> 自定义筛选</li>
+                            <li><i class="fas fa-check text-success me-2"></i>每月100次搜索</li>
+                            <li><i class="fas fa-check text-success me-2"></i>基础关键词搜索</li>
+                            <li><i class="fas fa-check text-success me-2"></i>导出前10条结果</li>
+                            <li><i class="fas fa-times text-secondary me-2"></i>无批量分析功能</li>
+                            <li><i class="fas fa-times text-secondary me-2"></i>无小语种搜索</li>
                         </ul>
                         
-                        <a href="#contact" class="btn btn-outline-primary w-100 mt-auto">选择套餐</a>
+                        <a href="#" class="btn btn-outline-primary w-100">开始免费试用</a>
                     </div>
                 </div>
                 
-                <!-- 初级版 -->
-                <div class="col-lg">
-                    <div class="pricing-card h-100">
-                        <h4>初级版</h4>
-                        <p class="text-muted small mb-3">单行业数据库Excel</p>
-                        
-                        <div class="price">
-                            ¥399 <span class="period">一次性交付</span>
-                        </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">最受欢迎</div>
+                        <h3>专业版</h3>
+                        <div class="price">$99 <span>/月</span></div>
+                        <p>适合中小外贸企业</p>
                         
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check text-success me-2"></i> Excel表格</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 网站信息</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 公司名称</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 国家地区</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 网页标题</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 网站语言</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 邮箱地址</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 联系电话</li>
-                            <li><i class="fas fa-times text-secondary me-2"></i> 自定义筛选</li>
+                            <li><i class="fas fa-check text-success me-2"></i>无限次搜索</li>
+                            <li><i class="fas fa-check text-success me-2"></i>所有核心功能</li>
+                            <li><i class="fas fa-check text-success me-2"></i>批量导出无限制</li>
+                            <li><i class="fas fa-check text-success me-2"></i>小语种搜索支持</li>
+                            <li><i class="fas fa-check text-success me-2"></i>智能分类功能</li>
                         </ul>
                         
-                        <a href="#contact" class="btn btn-outline-primary w-100 mt-auto">选择套餐</a>
+                        <a href="#" class="btn btn-primary w-100">立即购买</a>
+                        <p class="text-muted mt-2 small">首月仅需$49.5 (5折优惠)</p>
                     </div>
                 </div>
                 
-                <!-- 拓展版（推荐） -->
-                <div class="col-lg">
-                    <div class="pricing-card popular h-100">
-                        <div class="popular-badge">推荐</div>
-                        <h4>拓展版</h4>
-                        <p class="text-muted small mb-3">单行业数据库WaimaoSearch</p>
-                        
-                        <div class="price">
-                            ¥499 <span class="period">每年</span>
-                        </div>
+                <div class="col-lg-4">
+                    <div class="pricing-card">
+                        <h3>企业版</h3>
+                        <div class="price">$299 <span>/月</span></div>
+                        <p>适合大型外贸公司</p>
                         
                         <ul class="pricing-features">
-                            <li><i class="fas fa-check text-success me-2"></i> Excel表格</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 网站信息</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 公司名称</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 国家地区</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 网页标题</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 邮箱地址</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 联系电话</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 自定义筛选数据</li>
-                            <li><i class="fas fa-times text-secondary me-2"></i> 批量上传分析</li>
+                            <li><i class="fas fa-check text-success me-2"></i>专业版所有功能</li>
+                            <li><i class="fas fa-check text-success me-2"></i>API接口接入</li>
+                            <li><i class="fas fa-check text-success me-2"></i>自定义分类规则</li>
+                            <li><i class="fas fa-check text-success me-2"></i>团队协作功能</li>
+                            <li><i class="fas fa-check text-success me-2"></i>专属客户支持</li>
                         </ul>
                         
-                        <a href="#contact" class="btn btn-primary w-100 mt-auto">选择套餐</a>
+                        <a href="#contact" class="btn btn-outline-primary w-100">联系我们</a>
                     </div>
                 </div>
-                
-                <!-- 加强版 -->
-                <div class="col-lg">
-                    <div class="pricing-card h-100">
-                        <h4>加强版</h4>
-                        <p class="text-muted small mb-3">单行业数据库WaimaoSearch+</p>
-                        
-                        <div class="price">
-                            ¥599 <span class="period">每年</span>
-                        </div>
-                        
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check text-success me-2"></i> Excel表格</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 网站信息</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 公司名称</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 国家地区</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 网页标题</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 邮箱地址</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 联系电话</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 自定义筛选数据</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 批量上传网站分析</li>
-                        </ul>
-                        
-                        <a href="#contact" class="btn btn-outline-primary w-100 mt-auto">选择套餐</a>
-                    </div>
-                </div>
-                
-                <!-- 定制版 -->
-                <div class="col-lg">
-                    <div class="pricing-card h-100">
-                        <h4>定制版</h4>
-                        <p class="text-muted small mb-3">公司基础背调 + 精准联系人查找</p>
-                        
-                        <div class="price">
-                            ¥0.05-<span style="color: #d17c5b;">¥0.20</span>
-                            <span class="period">每网站</span>
-                        </div>
-                        
-                        <ul class="pricing-features">
-                            <li><i class="fas fa-check text-success me-2"></i> 网站信息</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 公司详情</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 所属行业</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 员工规模</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 国家地区</li>
-                            <li><i class="fas fa-check text-success me-2"></i> LinkedIn资料</li>
-                            <li><i class="fas fa-check text-success me-2"></i> Facebook资料</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 精准联系人</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 职位信息</li>
-                            <li><i class="fas fa-check text-success me-2"></i> 联系邮箱</li>
-                        </ul>
-                        
-                        <a href="#contact" class="btn btn-outline-primary w-100 mt-auto">定制咨询</a>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center p-4 border rounded bg-light">
+                        <h5 class="mb-3">不确定选择哪个方案？</h5>
+                        <p>我们的客户成功团队可以为您提供个性化建议。预约15分钟免费咨询，了解哪个方案最适合您的业务需求。</p>
+                        <a href="#contact" class="btn btn-secondary">预约免费咨询</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- 客户评价 -->
     <section id="testimonials" class="section-padding demo-section">
@@ -1200,76 +869,35 @@
         </div>
     </section>
 
-	<!-- 简洁版本 扫码联系我们 -->
-	<section id="contact" class="section-padding" style="background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%); color: white;">
-		<div class="container">
-			<div class="row align-items-center">
-				<!-- 左边：二维码 -->
-				<div class="col-lg-6 text-center mb-5 mb-lg-0">
-					<div class="qrcode-simple">
-						<h4 class="mb-4" style="color: white;">扫码添加微信</h4>
-						<div class="mb-4">
-							<img src="images/wechat_two.png" 
-								 alt="微信二维码" 
-								 class="img-fluid rounded shadow"
-								 style="max-width: 300px; border: 8px solid white;">
-						</div>
-						<p class="text-light">获取免费试用数据<br>一对一咨询服务</p>
-					</div>
-				</div>
-				
-				<!-- 右边：联系信息 -->
-				<div class="col-lg-6">
-					<h2 class="mb-4" style="color: white;">立即开始您的5秒客户开发之旅</h2>
-					<p class="mb-4">不要再把时间浪费在繁琐的搜索和筛选上。立即联系我们，体验外贸客户开发的效率革命。</p>
-					
-					<div class="contact-links">
-						<div class="d-flex align-items-center mb-3">
-							<i class="fas fa-envelope fa-lg me-3"></i>
-							<div>
-								<h5 class="mb-0">邮箱</h5>
-								<a href="mailto:support@waimaosearch.com" class="text-white">support@waimaosearch.com</a>
-							</div>
-						</div>
-						
-						<div class="d-flex align-items-center mb-3">
-							<i class="fas fa-phone fa-lg me-3"></i>
-							<div>
-								<h5 class="mb-0">电话</h5>
-								<a href="tel:+8618682301908" class="text-white">+86 18682301908</a>
-							</div>
-						</div>
-						
-						<div class="d-flex align-items-center mb-4">
-							<i class="fab fa-qq fa-lg me-3"></i>
-							<div>
-								<h5 class="mb-0">QQ咨询</h5>
-								<span class="text-white">2786942298</span>
-							</div>
-						</div>
-						
-						<div class="mt-4">
-							<p class="mb-3">或留下您的联系方式：</p>
-							<form>
-								<div class="row g-2">
-									<div class="col-md-6">
-										<input type="text" class="form-control" placeholder="姓名" required>
-									</div>
-									<div class="col-md-6">
-										<input type="tel" class="form-control" placeholder="电话" required>
-									</div>
-									<div class="col-12 mt-2">
-										<button type="submit" class="btn btn-light w-100">提交咨询</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
+    <!-- 最终CTA -->
+    <section id="contact" class="section-padding" style="background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%); color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="mb-4" style="color: white;">立即开始您的5秒客户开发之旅</h2>
+                    <p class="lead mb-5">不要再把时间浪费在繁琐的搜索和筛选上。立即注册免费试用，体验外贸客户开发的效率革命。</p>
+                    
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-lg-4 col-md-6">
+                            <a href="#pricing" class="btn btn-light btn-lg w-100">免费试用</a>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <a href="#demo" class="btn btn-outline-light btn-lg w-100">观看演示视频</a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <p class="mb-2">或通过以下方式联系我们：</p>
+                        <div class="d-flex justify-content-center flex-wrap">
+                            <a href="mailto:support@waimaosearch.com" class="text-white me-4"><i class="fas fa-envelope me-1"></i> support@waimaosearch.com</a>
+                            <a href="tel:+861234567890" class="text-white me-4"><i class="fas fa-phone me-1"></i> +86 123 4567 890</a>
+                            <a href="#" class="text-white"><i class="fas fa-comment me-1"></i> 在线客服</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- 页脚 -->
     <footer class="footer">
