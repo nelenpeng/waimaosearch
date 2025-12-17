@@ -1,0 +1,138 @@
+/* /css/case-styles.css */
+
+/* ===== 全局重置与字体 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #334155;
+  line-height: 1.6;
+  padding-top: 80px;
+  background-color: #f8fafc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* ===== 案例头部 ===== */
+.case-header {
+  background: white;
+  padding: 80px 0 40px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.case-header .badge {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+}
+
+/* ===== 左文右图模块 ===== */
+.text-media-block {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin: 60px 0;
+}
+
+.text-media-block.reverse {
+  flex-direction: row-reverse;
+}
+
+.text-media-block .text-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.text-media-block .media-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.text-media-block img,
+.text-media-block video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== 响应式：平板及手机 ===== */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .text-media-block {
+    flex-direction: column !important;
+    gap: 24px;
+  }
+
+  .case-header {
+    padding: 60px 0 30px;
+  }
+}
+
+/* ===== 按钮样式（如果未用 Bootstrap 类覆盖）===== */
+.btn-primary {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+  color: white !important;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: #1e293b;
+  color: white;
+  padding: 60px 0 30px;
+  margin-top: 80px;
+}
+
+.footer h5 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.copyright {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 30px;
+  border-top: 1px solid #334155;
+  color: #94a3b8;
+}
