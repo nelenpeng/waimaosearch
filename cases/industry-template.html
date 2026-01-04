@@ -1,200 +1,119 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>【行业名称】案例 - Waimao Search</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>行业案例模板</title>
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: #334155;
-            line-height: 1.6;
-            padding-top: 80px;
-            background-color: #f8fafc;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            color: #1e293b;
-        }
-        .navbar {
-            padding: 20px 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-        .navbar-brand { font-weight: 700; font-size: 1.8rem; color: #2563eb; }
-        .navbar-brand span { color: #10b981; }
-        .nav-link {
-            font-weight: 500;
-            margin: 0 10px;
-            color: #1e293b;
-            transition: color 0.3s;
-        }
-        .nav-link:hover, .nav-link.active { color: #2563eb; }
-        .btn-primary {
-            background-color: #2563eb !important;
-            border-color: #2563eb !important;
-            color: white !important;
-            padding: 12px 28px;
-            border-radius: 6px;
-            font-weight: 500;
-        }
-        .btn-primary:hover {
-            background-color: #1d4ed8 !important;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-        }
-        .case-header {
-            background: white;
-            padding: 80px 0 40px;
-            text-align: center;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .case-content {
-            padding: 60px 0;
-        }
-        .challenge, .solution, .result {
-            margin-bottom: 40px;
-        }
-        .footer {
-            background-color: #1e293b;
-            color: white;
-            padding: 60px 0 30px;
-        }
-        .footer h5 { color: white; margin-bottom: 25px; }
-        .footer-links { list-style: none; padding: 0; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-        }
-        .footer-links a:hover { color: white; }
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
-        }
-        @media (max-width: 768px) {
-            body { padding-top: 70px; }
-            .navbar { padding: 15px 0; }
-        }
-    </style>
+  <!-- 外部 CSS -->
+  <link rel="stylesheet" href="../css/case-styles.css" />
+
+  <!-- Bootstrap CSS（必需：支持 dropdown 和响应式） -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <!-- Navbar (same as industry-cases.html) -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="../index.html">Waimao<span>Search</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">返回首页</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
-                            行业案例
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="machinery.html">机械设备</a></li>
-                            <li><a class="dropdown-item" href="electronics.html">消费电子</a></li>
-                            <li><a class="dropdown-item" href="furniture.html">家居家具</a></li>
-                            <li><a class="dropdown-item" href="apparel.html">服装纺织</a></li>
-                            <li><a class="dropdown-item" href="chemicals.html">化工建材</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item ms-2">
-                        <a class="btn btn-primary" href="../index.html#contact">免费试用</a>
-                    </li>
-                </ul>
-            </div>
+  <!-- ✅ 完整导航栏：含下拉菜单 -->
+  <nav class="case-navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Logo -->
+      <a class="navbar-brand" href="../index.html">Waimao<span style="color:#10b981;">Search</span></a>
+
+      <!-- 导航项 -->
+      <div class="d-flex align-items-center gap-3">
+        <a class="nav-link" href="../index.html" style="text-decoration: none; color: #475569;">返回首页</a>
+
+        <!-- 行业案例下拉菜单 -->
+        <div class="dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            style="color: #475569; text-decoration: none;"
+          >
+            行业案例
+          </a>
+			<ul class="dropdown-menu">
+			  <li><a class="dropdown-item" href="auto-parts.html">汽车配件</a></li>
+			  <li><a class="dropdown-item" href="building-materials.html">建筑材料</a></li>
+			  <li><a class="dropdown-item" href="pet-supplies.html">宠物用品</a></li>
+			  <li><a class="dropdown-item" href="furniture.html">家具</a></li>
+			  <li><a class="dropdown-item" href="e-cigarettes.html">电子烟</a></li>
+			  <li><a class="dropdown-item" href="fishing-gear.html">渔具用品</a></li>
+			  <li><a class="dropdown-item" href="musical-instruments.html">乐器</a></li>
+			  <li><a class="dropdown-item" href="beauty.html">美容行业</a></li>
+			  <li><a class="dropdown-item" href="lighting.html">灯具</a></li>
+			  <li><a class="dropdown-item" href="marine.html">船舶设备</a></li>
+			  <li><a class="dropdown-item" href="camping-hunting.html">户外露营与狩猎</a></li>
+			  <li><a class="dropdown-item" href="others.html">更多其他行业..</a></li>
+			</ul>
         </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main>
-        <!-- 替换这里的标题和内容 -->
-        <section class="case-header">
-            <div class="container">
-                <span class="badge bg-primary mb-3">机械设备</span>
-                <h1>浙江某数控机床出口企业</h1>
-                <p class="text-muted mt-2">通过 Waimao Search 精准定位欧美采购商，3 周内获 8 条高质量询盘</p>
-            </div>
-        </section>
+        <!-- 按钮 -->
+        <a class="btn btn-primary" href="../index.html#contact">免费试用</a>
+      </div>
+    </div>
+  </nav>
 
-        <section class="case-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="challenge">
-                            <h3><i class="fas fa-exclamation-triangle text-warning me-2"></i>客户痛点</h3>
-                            <p>传统展会和 B2B 平台成本高、效率低，难以找到有真实采购需求的海外买家。</p>
-                        </div>
+  <!-- 案例头部 -->
+  <section class="case-header">
+    <div class="container">
+      <span class="badge bg-primary mb-3">行业名称</span>
+      <h1>客户公司或项目标题</h1>
+      <p class="text-muted mt-2">一句话成果摘要</p>
+    </div>
+  </section>
 
-                        <div class="solution">
-                            <h3><i class="fas fa-lightbulb text-info me-2"></i>解决方案</h3>
-                            <p>使用 Waimao Search 输入关键词 “CNC machine buyer Germany”，筛选出近 6 个月有进口记录的公司，并导出决策人联系方式。</p>
-                        </div>
+  <!-- 主内容区（三种模块已保留） -->
+  <main class="container">
 
-                        <div class="result">
-                            <h3><i class="fas fa-chart-line text-success me-2"></i>成果</h3>
-                            <ul>
-                                <li>3 周内发送 50 封精准邮件，打开率 48%</li>
-                                <li>获得 8 条有效询盘，成交 2 单，总金额 $120K</li>
-                                <li>节省 2 个月人工调研时间</li>
-                            </ul>
-                        </div>
+    <!-- 模块 1：左文右图 -->
+    <div class="content-block">
+      <div class="text-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> 客户痛点</h3>
+        <p>描述问题...</p>
+      </div>
+      <div class="media-content">
+        <img src="https://via.placeholder.com/600x400/e2e8f0/64748b?text=痛点示意图" alt="痛点">
+      </div>
+    </div>
 
-                        <div class="text-center mt-5">
-                            <a href="../index.html#contact" class="btn btn-primary btn-lg">获取您的行业方案</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- 模块 2：右文左图 -->
+    <div class="content-block reverse">
+      <div class="text-content">
+        <h3><i class="fas fa-lightbulb text-info"></i> 解决方案</h3>
+        <p>说明方案...</p>
+      </div>
+      <div class="media-content">
+        <img src="https://via.placeholder.com/600x400/f1f5f9/334155?text=解决方案" alt="方案">
+      </div>
+    </div>
 
-    <!-- Footer (可选，也可移除) -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h5>Waimao Search</h5>
-                    <p>5秒完成传统数月的客户搜索和筛选。</p>
-                </div>
-                <div class="col-md-4">
-                    <h5>快速链接</h5>
-                    <ul class="footer-links">
-                        <li><a href="../index.html">首页</a></li>
-                        <li><a href="../industry-cases.html">行业案例</a></li>
-                        <li><a href="../index.html#contact">联系我们</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5>联系我们</h5>
-                    <p>service@waimao-search.com</p>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2025 Waimao Search. 保留所有权利。
-            </div>
-        </div>
-    </footer>
+    <!-- 模块 3：左文右视频 -->
+    <div class="content-block">
+      <div class="text-content">
+        <h3><i class="fas fa-chart-line text-success"></i> 成果展示</h3>
+        <ul>
+          <li>成交金额 $XXX,XXX</li>
+          <li>获得 XX 条高质量询盘</li>
+        </ul>
+      </div>
+      <div class="media-content">
+        <video controls poster="https://via.placeholder.com/600x400/0f172a/94a3b8?text=成果视频封面">
+          <source src="https://example.com/demo.mp4" type="video/mp4">
+          您的浏览器不支持视频。
+        </video>
+      </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </main>
+
+  <!-- ⚠️ 必需：Bootstrap JS（让下拉菜单工作） -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- 可选：Font Awesome 图标 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
