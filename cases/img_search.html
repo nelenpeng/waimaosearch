@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图片搜索客户 - Waimao Search 智能开发工具</title>
+
+  <!-- 外部 CSS -->
+  <link rel="stylesheet" href="../css/case-styles.css" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+  <style>
+    .text-purple { color: #8b5cf6 !important; }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ 完整导航栏：含下拉菜单 -->
+  <nav class="case-navbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand" href="../index.html">Waimao<span style="color:#10b981;">Search</span></a>
+      <div class="d-flex align-items-center gap-3">
+        <a class="nav-link" href="../index.html" style="text-decoration: none; color: #475569;">返回首页</a>
+        <div class="dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #475569; text-decoration: none;">
+            行业案例
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="auto-parts.html">汽车配件</a></li>
+            <li><a class="dropdown-item" href="building-materials.html">建筑材料</a></li>
+            <li><a class="dropdown-item" href="pet-supplies.html">宠物用品</a></li>
+            <li><a class="dropdown-item" href="furniture.html">家具</a></li>
+            <li><a class="dropdown-item" href="e-cigarettes.html">电子烟</a></li>
+            <li><a class="dropdown-item" href="fishing-gear.html">渔具用品</a></li>
+            <li><a class="dropdown-item" href="musical-instruments.html">乐器</a></li>
+            <li><a class="dropdown-item" href="beauty.html">美容行业</a></li>
+            <li><a class="dropdown-item" href="lighting.html">灯具</a></li>
+            <li><a class="dropdown-item" href="marine.html">船舶设备</a></li>
+            <li><a class="dropdown-item" href="camping-hunting.html">户外露营与狩猎</a></li>
+            <li><a class="dropdown-item" href="others.html">更多其他行业..</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-primary" href="../index.html#contact">免费试用</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 标题 + 价值主张 -->
+  <div class="container py-5 text-center">
+    <h1 class="display-5 fw-bold">图片搜索客户</h1>
+    <p class="lead text-muted">Waimao Search 智能线索挖掘工具</p>
+    <p class="mb-0">
+      从一张产品图出发，反向挖掘全球使用同类产品的海外客户网站，<br>
+      自动识别 B2B/B2C 属性，快速构建高精准开发名单。
+    </p>
+  </div>
+
+  <!-- 核心功能模块 -->
+  <div class="container py-5">
+    <div class="section-title text-center mb-5">
+      <h2>六大核心能力，让“以图搜客”更智能</h2>
+      <p class="lead text-muted">手动操作，但效率远超传统搜索</p>
+    </div>
+
+    <!-- 6个功能，3行×2列，完全对称 -->
+    <div class="row g-5">
+      <!-- 功能 1 -->
+      <div class="col-lg-6">
+        <div class="d-flex gap-3">
+          <div class="flex-shrink-0">
+            <i class="fas fa-image fa-2x text-primary"></i>
+          </div>
+          <div>
+            <h5>多引擎图片搜索支持</h5>
+            <p>一键启动 Google 或 Bing 图片搜索，软件自动打开 Chrome 并最大化窗口，简化操作流程。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 功能 2 -->
+      <div class="col-lg-6">
+        <div class="d-flex gap-3">
+          <div class="flex-shrink-0">
+            <i class="fas fa-magic fa-2x text-success"></i>
+          </div>
+          <div>
+            <h5>相似图片智能扩展</h5>
+            <p>点击任意图片，系统推荐视觉/主题相似结果，滚动到底部即可批量提取其来源网站，扩大线索池。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 功能 3 -->
+      <div class="col-lg-6">
+        <div class="d-flex gap-3">
+          <div class="flex-shrink-0">
+            <i class="fas fa-cloud-download-alt fa-2x text-info"></i>
+          </div>
+          <div>
+            <h5>一键提取全部来源网站</h5>
+            <p>在搜索结果页滚动到底部，点击“一键获取图片”，自动抓取每张图片对应的 URL、页面标题与搜索词。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 功能 4 -->
+      <div class="col-lg-6">
+        <div class="d-flex gap-3">
+          <div class="flex-shrink-0">
+            <i class="fas fa-tag fa-2x text-warning"></i>
+          </div>
+          <div>
+            <h5>自动标注 B2B / B2C 属性</h5>
+            <p>对提取的每个网站智能分析：标记是否为 Alibaba、Amazon 等平台，并识别其业务模式，帮你过滤非目标客户。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 功能 5 -->
+      <div class="col-lg-6">
+        <div class="d-flex gap-3">
+          <div class="flex-shrink-0">
+            <i class="fas fa-chart-bar fa-2x text-purple"></i>
+          </div>
+          <div>
+            <h5>支持后续词频分析</h5>
+            <p>提取的网站可直接用于多语言高频词统计，反向验证该品类在目标市场的热度与关键词有效性。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 功能 6 -->
+      <div class="col-lg-6">
+        <div class="d-flex gap-3">
+          <div class="flex-shrink-0">
+            <i class="fas fa-history fa-2x text-danger"></i>
+          </div>
+          <div>
+            <h5>全流程记录与回溯</h5>
+            <p>退出后自动保存：搜索词、引擎类型、URL 列表、分析标签，支持导出或二次筛选，形成完整开发档案。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ 视频：独立居中区块 -->
+    <div class="row justify-content-center mt-5 pt-4 border-top">
+      <div class="col-lg-8 text-center">
+        <h3 class="mb-4">2 分钟看懂“以图搜客”如何工作</h3>
+        <div class="ratio ratio-16x9">
+          <iframe src="https://player.bilibili.com/player.html?bvid=BV1HMz7BEEH5&page=1&autoplay=0&danmaku=0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+        </div>
+        <p class="text-muted small mt-2">演示：从上传关键词 → 搜索图片 → 提取网站 → 自动标注 B2B 属性</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 适用场景 -->
+  <div class="container py-4 bg-light rounded">
+    <h4 class="text-center mb-4">特别适用于以下场景：</h4>
+    <div class="row text-center g-3">
+      <div class="col-md-4">
+        <i class="fas fa-search fa-2x mb-2 text-primary"></i>
+        <p><strong>冷启动市场</strong><br>不知道用什么词找客户？先搜一张图！</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-clone fa-2x mb-2 text-success"></i>
+        <p><strong>竞品渠道挖掘</strong><br>找到竞品合作的海外分销商或零售商</p>
+      </div>
+      <div class="col-md-4">
+        <i class="fas fa-store fa-2x mb-2 text-info"></i>
+        <p><strong>终端买家发现</strong><br>定位真实销售同类产品的 B2C 电商或独立站</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 行动号召 -->
+  <div class="container py-5 text-center">
+    <h4>用一张图，开启全球客户挖掘</h4>
+    <p class="mb-4">
+      手动操作，但效率极高 ——<br>
+      <strong>几分钟内获取数百个精准网站，并自动识别 B2B/B2C 属性</strong>
+    </p>
+    <a href="../index.html#contact" class="btn btn-success btn-lg">立即免费试用</a>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
