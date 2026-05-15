@@ -1,0 +1,21 @@
+# 静态资源（图片、CSS、JS）缓存 1 年
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 常见文件类型（字体、文档）缓存 1 年
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/*.pdf
+  Cache-Control: public, max-age=31536000
+
+# HTML 页面缓存 1 小时（兼顾速度和更新）
+/*.html
+  Cache-Control: public, max-age=3600
+
+# 首页（通常无后缀）缓存 1 小时
+/
+  Cache-Control: public, max-age=3600

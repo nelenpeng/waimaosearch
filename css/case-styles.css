@@ -1,9 +1,4 @@
 /* ============= 全局 ============= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   font-family: 'Roboto', sans-serif;
@@ -13,35 +8,6 @@ body {
   background-color: #f8fafc;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 16px;
-}
-
-p, ul {
-  margin-bottom: 16px;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin: 0 auto;
-}
-
-/* ============= 导航栏（简化版）============= */
-.case-navbar {
-  padding: 20px 0;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
 
 /* ============= 内容模块通用样式 ============= */
 .content-block {
@@ -75,25 +41,3 @@ p, ul {
 }
 
 /* ============= 响应式 ============= */
-@media (max-width: 768px) {
-  body {
-    padding-top: 70px;
-  }
-
-  .content-block {
-    flex-direction: column !important;
-    gap: 24px;
-  }
-
-  .case-header {
-    padding: 60px 0 30px;
-  }
-}
-
-/* ============= 案例头部 ============= */
-.case-header {
-  background: white;
-  padding: 80px 0 40px;
-  text-align: center;
-  border-bottom: 1px solid #e2e8f0;
-}
